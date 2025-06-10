@@ -44,7 +44,7 @@ const RequestWithChildrenItem = ({
         <Image
           src={
             item?.feature_image ||
-            "https://api.stradevn.com/v1/media/file/category-cf1010.jpg"
+            ""
           }
           alt=""
           fill

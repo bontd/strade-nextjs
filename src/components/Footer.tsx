@@ -23,22 +23,22 @@ export default async function ({ lang }: { lang: Locale }) {
       <div className="grid grid-cols-1 gap-y-4">
         <p className="text-white">
           <span className="font-bold">Email: </span>
-          infostradevn@gmail.com
+          info@gmail.com
         </p>
         <p className="text-white">
           <span className="font-bold">{dict.companyCode}: </span>
-          0110641253
+          xxxx-xxxx-xxxx-xxxx
         </p>
         <p className="text-white">
           <span className="font-bold">{dict.contactPoint}: </span>
-          0982 727 425
+          <a href="tel:1900-xxxx">1900-xxxx</a>
           <Image className="mt-3" src={"/images/zalo_qr.png"} alt={""} width={100} height={100}/>
         </p>
       </div>
       <div className="grid grid-cols-1 gap-y-4 cursor-pointer">
-        <p className="text-white"><Link href="https://stradevn.com/page/privacy-policy">{dict.privacyPolicy}</Link></p>
-        <p className="text-white"><Link href="https://stradevn.com/page/product-listing-policy">{dict.productListingPolicy}</Link></p>
-        <p className="text-white"><Link href="https://stradevn.com/page/terms-of-use">{dict.termOfUse}</Link></p>
+        <p className="text-white"><Link href="/page/privacy-policy">{dict.privacyPolicy}</Link></p>
+        <p className="text-white"><Link href="/page/product-listing-policy">{dict.productListingPolicy}</Link></p>
+        <p className="text-white"><Link href="/page/terms-of-use">{dict.termOfUse}</Link></p>
         <p className="text-white">
           <span className="font-bold">{dict.address}: </span>
           Số 7 Sunrise D - The Manor Central Park, đường Nguyên Xiển, Phường Đại Kim, Quận Hoàng Mai, Thành phố Hà Nội, Việt Nam

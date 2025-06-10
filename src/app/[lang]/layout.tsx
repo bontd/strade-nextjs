@@ -30,8 +30,6 @@ export default async function RootLayout({
     <html lang="vi">
     <head>
       <GoogleAnalytics gaId="G-V8569QFL48"/>
-      <meta property="og:image" content="https://api.stradevn.com/v1/media/file/22-03-24-strade-23a8.jpg"/>
-      <meta property="og:image:secure_url" content="https://api.stradevn.com/v1/media/file/22-03-24-strade-23a8.jpg"/>
       <meta property="og:image:width" content="1300"/>
       <meta property="og:image:height" content="816"/>
       <meta property="og:image:type" content="image/jpg"/>
