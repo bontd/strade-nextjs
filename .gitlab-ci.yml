@@ -1,0 +1,48 @@
+stages:
+    - update
+    - deploy
+
+image: debian:buster-slim
+
+code_pull_production:
+    stage: update
+    script:
+      - |
+        apt-get update -y
+        apt install openssh-server -y
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh "root@$SERVER_ADDRESS" -o StrictHostKeyChecking=no "su strade -c 'cd /home/strade/stradevn-web && git checkout origin/develop && git pull origin develop'"
+        exit_status=$?
+        if [ $exit_status -eq 0 ]; then
+            echo "Code checkout successful."
+            exit 0
+        else
+            echo "Code checkout failed with exit status $exit_status."
+            exit 1
+        fi
+    only:
+      - develop
+
+code_deploy_production:
+    stage: deploy
+    script:
+      - |
+        apt-get update -y
+        apt install openssh-server -y
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh "$SERVER_USER@$SERVER_ADDRESS" -o StrictHostKeyChecking=no "su strade -c 'cd /home/strade/stradevn-web && npm install && npm run build && pm2 restart 1'"
+        exit_status=$?
+        if [ $exit_status -eq 0 ]; then 
+            exit 0
+        else 
+            echo "failed with exit status $exit_status"
+            exit 1
+        fi
+    only:
+        - develop
+
+

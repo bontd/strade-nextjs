@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply border-[#EBE0F9] border-[1px] w-full p-2 text-primary placeholder-gray;
+  }
+  .btn {
+    @apply bg-orange text-[#FFF] text-center py-3 font-bold;
+  }
+  .checkbox {
+    @apply bg-orange text-orange
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+#page-content h1,
+#page-content h2,
+#page-content h3,
+#page-content h4,
+#page-content h5,
+#page-content h6,
+#page-content p {
+  margin-bottom: 0.5em;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media screen and (max-width: 991px){
+  .header-navi {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: transparent;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: .3s ease-in-out;
+    z-index: 999;
+  }
+
+  .header-navi.fadebg {
+    background-color: rgba(0, 0, 0, .7)
+  }
+
+  .header-navi.active {
+    transform: translateX(0);
+  }
+
+  .toggle-nav.active {
+    position: fixed;
+    
+  }
+
+  .toggle-nav.fadebg {
+    left: calc(100% - 50px);
+    z-index: 999;
+  }
+
+  .toggle-nav.active :nth-child(1) {
+    top: calc(50%);
+    transform: rotate(45deg);
+  }
+
+  .toggle-nav.active :nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle-nav.active :nth-child(3) {
+    top: calc(50%);
+    transform: rotate(-45deg);
+  }
+
+  .header-navi .nav-link {
+    padding: 10px 15px;
+  }
+
+  .toggle-nav {
+    top: 20px;
+    left: 20px;
+    border-radius: 5px;
+    z-index: 99;
+  }
+
+  .toggle-nav span {
+    width: 60%;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+    left: 20%;
+    transition: .3s ease-in-out;
+    z-index: 999;
+  }
+
+  .toggle-nav span:nth-child(1) {
+    top: calc(50% - 7px);
+  }
+
+  .toggle-nav span:nth-child(2) {
+    top: calc(50%);
+  }
+
+  .toggle-nav span:nth-child(3) {
+    top: calc(50% + 7px);
+  }
+
+  .search-group {
+    width: 65%;
+  }
+
+  .search-group input {
+    width: 100%;
+  }
+
+  .search-group button {
+    white-space: nowrap;
+  }
+
+  .sidebar .sidebar-toggle svg {
+    
+  }
+
+  .sidebar .sidebar-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    height: 100vh;
+    overflow: auto;
+    padding: 80px 20px;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: .3s;
+  }
+
+  .sidebar .sidebar-content.active {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 767px){
+  .toggle-nav {
+    top: 15px;
+  }
+
+  .account-group {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  .search-group {
+    width: 100%;
+  }
+
+  .product-list .product-item {
+    padding: 0;
+  }
+}
+
+.slider-partner .slick-slide>div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+}
+
+.slider-customer .slick-slide {
+  padding: 0 10px;
+}
+
+@media (min-width: 640px) {
+  .slider-customer .slick-slide {
+    padding: 0 20px;
+  }
+}
+
+/* page membership-buyer */
+.information_item {
+  position: relative;
+}
+.information_item::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #7143AA 0%, #B285EB 100%);
+  position: absolute;
+  top: 25px;
+  left: 15px;
+}
+.position_btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+}
+@media screen and (min-width: 991px){
+  .position_btn.txt-free {
+    bottom: 125px;
+  } 
+}
+.cpn_btn:hover {
+  opacity: .7;
+}
+
+.product-list .product-item {
+  background-color: #ffffff;
+  border: 1px solid #EBE0F9;
+}
+
+.product-list .propduct-item-content {
+  padding: 0 20px 30px;
+}
+
+.slider_navfor .slick-arrow::before,
+.slider_navfor .slick-arrow::after {
+  color: #000000;
+}
+
+.slider_navfor-item {
+  width: 62px;
+  height: 62px;
+  padding: 0 5px;
+}
+
+.slider_navfor-item img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.slider-internation .slick-slide {
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.slider-internation .slick-dots li {
+  width: 14px;
+  height: 7px;  
+  border-radius: 6px;
+  background-color: #D9D9D9;
+}
+
+.slider-internation .slick-dots li.slick-active {
+  width: 38px;  
+  background-color: #FFD38E;
+}
+
+.slider-internation .slick-dots li button {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-internation .slick-dots li button::before {
+  content: inherit;
+}
+
+@media (min-width: 576px) {
+  .slider-internation .slick-slide {
+    padding: 0 5px;
+  }
+}
+
+.service-item {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.service-item .image {
+  position: absolute;
+  right: 10px;
+  z-index: -1;
+}
+
+@media (min-width: 640px) {
+  .service-item .image {
+    right: 25px;
+  }
+}
+
+.service-item-1 .image {
+  width: 328px;
+  height: 219px;
+  bottom: 0;
+}
+
+.service-item-2 .image {
+  width: 218px;
+  height: 216px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.requirement-category {
+  grid-row-gap: 30px;
+}
+
+.requirement-category a {
+  padding: 0 0 30px;
+  border-bottom: solid thin #EBE0F9;
+}
+
+@media (min-width: 640px) {
+  .requirement-category {
+    grid-column-gap: 50px;
+  }
+
+  .requirement-category a {
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  .requirement-category a:not(:nth-child(2n)){
+    border-right: solid thin #EBE0F9;
+  }
+}
+
+@media (min-width: 768px) {
+  .requirement-category {
+    grid-row-gap: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .requirement-category a:nth-child(2n){
+    border: 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1279px) {
+  .requirement-category a:nth-child(3n){
+    border: 0;
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .requirement-category a:nth-child(4n){
+    border: 0;
+  }
+}
